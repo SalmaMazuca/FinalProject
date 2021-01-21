@@ -7,17 +7,17 @@
      >
       <template v-slot:activator="{ on, attrs }">
         <v-btn
-          color="#ffdf76"
+          color="#ffd862"
           dark
           v-bind="attrs"
           v-on="on"
-        >Motivación</v-btn>
+        >Toca aquí</v-btn>
       </template>
       <v-card>
         <v-card-title class="headline grey lighten-2">
-          ¡Hora de escribir!
+          ¡Hora de escribir! Modo: Creativo
         </v-card-title>
-        <v-card-text>Es momento de liberar tu imaginación, deja fluir toda tu creatividad ¿listo?</v-card-text>
+        <v-card-text>¡Hola! Es momento de liberar tu imaginación, por favor deja fluir toda tu creatividad. Este espacio es completamente tuyo, asegurate de relajarte durante el proceso ¿listo?</v-card-text>
         <v-divider></v-divider>
         <v-card-actions>
           <v-spacer></v-spacer>
@@ -58,7 +58,7 @@
         v-model="genre"
         ></v-text-field>
           <v-btn @click="submit" :disabled="!valid">Guardar</v-btn>
-          <v-btn @click="clear" :disabled="!valid">Limpiar</v-btn>
+          <v-btn @click="clear">Limpiar</v-btn>
     </v-form>
 </template>
 
@@ -89,7 +89,7 @@ export default {
   }),
   methods: {
     submit () {
-      if (this.$ref.form.validate()) {
+      if (this.$refs.form.validate()) {
         // Realizar siguiente accion
         return axios({
           method: 'post',
@@ -106,18 +106,10 @@ export default {
           }
         })
           .then(() => {
-            this.$swal('¡Enviado!',
-              '¡Historia guardada exitosamente!',
-              'success')
-            this.$router.push({
-              name: 'Home'
-            })
+            this.$router.push({name: 'Home'})
             this.$refs.form.reset()
           })
           .catch(() => {
-            this.$swal('Hay un problema',
-              'No se pudo guardar tu escrito',
-              'error')
           })
       }
       return true

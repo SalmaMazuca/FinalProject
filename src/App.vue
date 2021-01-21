@@ -2,12 +2,27 @@
   <v-app id="inspire">
     <v-navigation-drawer v-model="drawer" absolute temporary app>
       <v-list nav dense>
+        <v-list-item-title class="title">
+            Bienvenido
+          </v-list-item-title>
+          <v-list-item-subtitle>
+            Escribe con el corazón
+          </v-list-item-subtitle>
+          <v-divider></v-divider>
         <router-link v-bind:to="{ name: 'Home' }" class="side_bar_link">
           <v-list-item>
             <v-list-item-action>
               <v-icon>dashboard</v-icon>
             </v-list-item-action>
             <v-list-item-content>Inicio</v-list-item-content>
+          </v-list-item>
+        </router-link>
+        <router-link v-bind:to="{ name: 'AddStory' }" class="side_bar_link">
+          <v-list-item>
+            <v-list-item-action>
+              <v-icon>book</v-icon>
+            </v-list-item-action>
+            <v-list-item-content>Agregar historia</v-list-item-content>
           </v-list-item>
         </router-link>
         <router-link v-bind:to="{ name: 'AboutUs' }" class="side_bar_link">
@@ -28,7 +43,7 @@
         </router-link>
       </v-list>
     </v-navigation-drawer>
-    <v-app-bar src="https://picsum.photos/1920/1080?random" dark fixed app>
+    <v-app-bar src="https://i.picsum.photos/id/855/5852/3901.jpg?hmac=8RddqNNFARX2_gZXWnOOHJHhBMEEJERCgN3DRp8iokA" dark fixed app>
     <!--https://i.picsum.photos/id/24/4855/1803.jpg?hmac=ICVhP1pUXDLXaTkgwDJinSUS59UWalMxf4SOIWb9Ui4-->
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title class="text-uppercase gray--text">
@@ -36,9 +51,9 @@
         <span>Friend</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-and-down">
+      <!--<v-toolbar-items class="hidden-sm-and-down">
         <v-btn flat v-bind:to="{ name: 'AddStory'}">Nueva historia</v-btn>
-      </v-toolbar-items>
+      </v-toolbar-items>-->
       <v-btn icon>
         <v-icon>mdi-export</v-icon>
       </v-btn>
@@ -50,7 +65,7 @@
           </div>
         </v-container>
       </v-main>
-      <v-footer padless>
+      <v-footer color="#ffd862">
     <v-col class="text-center" cols="12">
       {{ new Date().getFullYear() }} — <strong>Derechos reservados</strong>
     </v-col>

@@ -21,7 +21,7 @@ a.side_bar_link {
 }
 
 .v-card_title-primary, .v-card_text {
-    text-align: center
+    text-align:justify
 }
 
 .v-card {
