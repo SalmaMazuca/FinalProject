@@ -1,8 +1,7 @@
 <template>
     <v-layout column wrap>
         <v-flex xs4>
-            <v-card :loading="loading"
-            class="mx-auto my-12"
+            <v-card class="mx-auto my-12"
             max-width="500"
             elevation="13"
             shaped>
@@ -20,11 +19,11 @@
                 </v-card-text>
             </v-card>
             <v-bottom-navigation>
-            <v-btn v-if="current_user">
-                <span>Comentar</span>
+            <v-btn>
+                <span>Favoritos</span>
                 <v-icon color="#ffc516">mdi-heart</v-icon>
                 </v-btn>
-            <v-btn v-if="current_user" @click="editStory">
+            <v-btn @click="editStory">
                 <span>Editar</span>
                 <v-icon color="#ffc516">create</v-icon>
                 </v-btn>
@@ -39,8 +38,6 @@
 <script>
 
 import axios from 'axios'
-
-// const wrapper = document.createElement('div');
 
 export default {
   name: 'Story',
@@ -65,7 +62,16 @@ export default {
         })
     },
     deleteStory (id) {
-      console.log(id)
+      fetch('http://localhost:8081/api/stories/' + id, {
+        method: 'delete',
+        // url: 'http://localhost:8081/stories',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(() => {
+          this.$router.push({name: 'Home'})
+        })
     }
   }
 }

@@ -35,6 +35,13 @@ module.exports.controller = (app) => {
     });
     // Eliminar historia
     app.delete('/api/stories/:id', (req, res) => {
-        
-    })
+        StorySchema.findByIdAndDelete(req.params.id,
+            'name author description release_year genre', (error, story) => {
+            if (error) { res.send('error removing'); }
+            else {
+                console.log(error);
+                res.status(204);
+            }
+        })
+    });
 };
