@@ -1,8 +1,9 @@
 const StorySchema = require('../models/Story.js');
+const passport = require('passport');
 
 module.exports.controller = (app) => {
     // Obtener las historias
-    app.get('/stories', (req, res) => {
+    app.get('/stories', function(req, res) {
         StorySchema.find({}, 'name author description release_year genre',
         (error, stories) => {
           if (error) {console.log(error); }
@@ -36,7 +37,7 @@ module.exports.controller = (app) => {
     // Eliminar historia
     app.delete('/api/stories/:id', (req, res) => {
         StorySchema.findByIdAndDelete(req.params.id,
-            'name author description release_year genre', (error, story) => {
+            {}, (error, story) => {
             if (error) { res.send('error removing'); }
             else {
                 console.log(error);

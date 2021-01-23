@@ -2,7 +2,7 @@
     <v-layout column wrap>
         <v-flex xs4>
             <v-card class="mx-auto my-12"
-            max-width="500"
+            max-width="800"
             elevation="13"
             shaped>
                 <v-card-title primary-title>
@@ -22,10 +22,6 @@
             <v-btn>
                 <span>Favoritos</span>
                 <v-icon color="#ffc516">mdi-heart</v-icon>
-                </v-btn>
-            <v-btn @click="editStory">
-                <span>Editar</span>
-                <v-icon color="#ffc516">create</v-icon>
                 </v-btn>
             <v-btn @click="deleteStory(story._id)">
                 <span>Eliminar</span>
@@ -61,16 +57,16 @@ export default {
         .catch(() => {
         })
     },
-    deleteStory (id) {
-      fetch('http://localhost:8081/api/stories/' + id, {
+    async deleteStory (id) {
+      return axios({
         method: 'delete',
-        // url: 'http://localhost:8081/stories',
+        url: 'http://localhost:8081/api/stories/' + id,
         headers: {
           'Content-Type': 'application/json'
         }
       })
         .then(() => {
-          this.$router.push({name: 'Home'})
+          this.$router({ name: 'Home' })
         })
     }
   }

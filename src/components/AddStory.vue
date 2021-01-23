@@ -7,7 +7,7 @@
      >
       <template v-slot:activator="{ on, attrs }">
         <v-btn
-          color="#ffd862"
+          color="#00274e"
           dark
           v-bind="attrs"
           v-on="on"
@@ -100,7 +100,7 @@ export default {
             release_year: this.release_year,
             genre: this.genre
           },
-          url: 'http://localhost:8081/stories',
+          url: '/stories',
           headers: {
             'Content-Type': 'application/json'
           }
