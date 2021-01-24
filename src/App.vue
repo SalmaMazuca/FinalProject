@@ -6,7 +6,7 @@
             Bienvenido
           </v-list-item-title>
           <v-list-item-subtitle class="font-italic">
-            Escribe con el corazón
+            Capturando historias con
            <v-icon color="#00274e">favorite</v-icon>
           </v-list-item-subtitle>
           <v-divider></v-divider>
@@ -48,24 +48,53 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title class="text-uppercase gray--text">
         <span class="headline font-weight-light">Focus</span>
+        <v-icon
+        size="40px"
+        color="#ffff2a"
+      >
+        emoji_objects
+      </v-icon>
         <span>Friend</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn id="user_email" flat v-if="current_user">
-        <!--<v-icon>mdi-export</v-icon>-->
         {{ current_user.email }}
       </v-btn>
-      <v-btn flat v-bind:to="{ name: 'Register' }" v-if="!current_user"
-      id="register_btn">
-        Registrar
-      </v-btn>
-      <v-btn flat v-bind:to="{ name: 'Login' }" v-if="!current_user"
-      id="login_btn">
-        Iniciar sesión
-      </v-btn>
-      <v-btn flat id="logout_btn" v-if="current_user" @click="logout">
-        Cerrar sesión
-      </v-btn>
+      <v-chip flat v-bind:to="{ name: 'Register' }" v-if="!current_user"
+      id="register_btn"
+      class="ma-2"
+      color="#fcfcfc"
+      outlined
+      pill
+    >
+      Registrar
+      <v-icon right>
+        mdi-account-outline
+      </v-icon>
+    </v-chip>
+      <v-chip flat v-bind:to="{ name: 'Login' }" v-if="!current_user"
+      id="login_btn"
+      class="ma-2"
+      color="#fcfcfc"
+      outlined
+      pill
+    >
+      Iniciar sesión
+      <v-icon right>
+        how_to_reg
+      </v-icon>
+    </v-chip>
+      <v-chip flat id="logout_btn" v-if="current_user" @click="logout"
+      class="ma-2"
+      color="#fcfcfc"
+      outlined
+      pill
+    >
+      Cerrar sesión
+      <v-icon right>
+        account_circle
+      </v-icon>
+    </v-chip>
     </v-app-bar>
       <v-main>
         <v-container fluid>

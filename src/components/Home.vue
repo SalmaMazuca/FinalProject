@@ -1,5 +1,14 @@
 <template>
-  <v-layout row wrap>
+  <v-layout column align-center>
+    <v-carousel>
+      <v-carousel-item
+        v-for="(item,i) in items"
+        :key="i"
+        :src="item.src">
+      </v-carousel-item>
+    </v-carousel>
+    <h2 class="text-center">Historias</h2>
+    <v-container row>
     <v-flex xs4 v-for="story in stories" :key="story._id">
       <v-card class="mx-auto" max-width="344">
           <v-img height="150" src="https://picsum.photos/510/300?random">
@@ -22,6 +31,7 @@
         </v-card-actions>
       </v-card>
     </v-flex>
+    </v-container>
   </v-layout>
 </template>
 
@@ -33,7 +43,21 @@ export default {
   name: 'Stories',
   data () {
     return {
-      stories: []
+      stories: [],
+      items: [
+        {
+          src: 'https://i.picsum.photos/id/403/3997/2665.jpg?hmac=l04T0quGocuZKSo0CxAJ7aC8CivbrCWV0X0dCzqvb0Y'
+        },
+        {
+          src: 'https://i.picsum.photos/id/1073/5472/3648.jpg?hmac=xCDetU9pLnLGZopbvHOQOkQRhTiYwyrzWc0YyHPzp5Y'
+        },
+        {
+          src: 'https://i.picsum.photos/id/366/4000/3000.jpg?hmac=zphhHOH9ofToN2jNHd8z-nc98NrBd8y2okWXEXetLDg'
+        },
+        {
+          src: 'https://i.picsum.photos/id/5/5245/3497.jpg?hmac=jTb-5BTllgPl1ftM06REk6EFZCqYDwMyUvg2WAJ6oUE'
+        }
+      ]
     }
   },
   mounted () {

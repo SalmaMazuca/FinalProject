@@ -21,11 +21,11 @@
             <v-bottom-navigation>
             <v-btn>
                 <span>Favoritos</span>
-                <v-icon color="#ffc516">mdi-heart</v-icon>
+                <v-icon color="#62629d">mdi-heart</v-icon>
                 </v-btn>
             <v-btn @click="deleteStory(story._id)">
                 <span>Eliminar</span>
-                <v-icon color="#ffc516">delete</v-icon>
+                <v-icon color="#62629d">delete</v-icon>
                 </v-btn>
             </v-bottom-navigation>
         </v-flex>
@@ -66,7 +66,7 @@ export default {
         }
       })
         .then(() => {
-          this.$router({ name: 'Home' })
+          this.$router.push({ name: 'Home' })
         })
     }
   }

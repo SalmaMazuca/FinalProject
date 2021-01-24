@@ -90,7 +90,6 @@ export default {
   methods: {
     submit () {
       if (this.$refs.form.validate()) {
-        // Realizar siguiente accion
         return axios({
           method: 'post',
           data: {

@@ -55,12 +55,12 @@ router.get('/api/current_user', isLoggedIn, function (req, res) {
     if (req.user) {
         res.send({ current_user: req.user })
     } else {
-        res.status(403).send({ success: false, msg: 'No autorizado '});
+        res.status(403).send({ success: false, msg: 'No autorizado'});
     }
 })
 
 function isLoggedIn(req, res, next) {
-    if (req.isAuthenticate()) return next();
+    if (req.isAuthenticated()) return next();
     res.redirect('/');
     console.log('Error! Autenticación fallida')
 }
